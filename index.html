@@ -410,32 +410,32 @@
             <form id="triageForm" onsubmit="handleTriageSubmit(event)" class="space-y-6">
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label class="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-2">Nome Completo *</label>
+                  <label id="lbl_triNome" class="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-2">Nome Completo *</label>
                   <input type="text" id="triNome" required class="w-full bg-warm-light border-none rounded-xl px-4 py-3.5 text-sm text-stone-800 focus:ring-1 focus:ring-gold-400 transition-shadow">
                 </div>
                 <div>
-                  <label class="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-2">Telefone *</label>
+                  <label id="lbl_triPhone" class="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-2">Telefone *</label>
                   <input type="tel" id="triPhone" required placeholder="(00) 00000-0000" class="w-full bg-warm-light border-none rounded-xl px-4 py-3.5 text-sm text-stone-800 focus:ring-1 focus:ring-gold-400 transition-shadow">
                 </div>
               </div>
 
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 <div>
-                  <label class="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-2">Idade *</label>
+                  <label id="lbl_triIdade" class="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-2">Idade *</label>
                   <input type="number" id="triIdade" required min="1" max="120" class="w-full bg-warm-light border-none rounded-xl px-4 py-3.5 text-sm text-stone-800 focus:ring-1 focus:ring-gold-400 transition-shadow">
                 </div>
                 <div>
-                  <label class="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-2">Nascimento *</label>
+                  <label id="lbl_triNascimento" class="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-2">Nascimento *</label>
                   <input type="date" id="triNascimento" required class="w-full bg-warm-light border-none rounded-xl px-4 py-3.5 text-sm text-stone-800 focus:ring-1 focus:ring-gold-400 transition-shadow">
                 </div>
                 <div>
-                  <label class="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-2">Cidade/UF *</label>
+                  <label id="lbl_triCidade" class="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-2">Cidade/UF *</label>
                   <input type="text" id="triCidade" required class="w-full bg-warm-light border-none rounded-xl px-4 py-3.5 text-sm text-stone-800 focus:ring-1 focus:ring-gold-400 transition-shadow">
                 </div>
               </div>
 
               <div>
-                <label class="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-2">Área de Interesse *</label>
+                <label id="lbl_triArea" class="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-2">Área de Interesse *</label>
                 <select id="triArea" required class="w-full bg-warm-light border-none rounded-xl px-4 py-3.5 text-sm text-stone-800 focus:ring-1 focus:ring-gold-400 transition-shadow appearance-none">
                   <option value="">Selecione o assunto...</option>
                   <option value="Previdenciário / INSS">Previdenciário / INSS</option>
@@ -447,7 +447,7 @@
               </div>
 
               <div>
-                <label class="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-2">Breve relato *</label>
+                <label id="lbl_triRelato" class="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-2">Breve relato *</label>
                 <textarea id="triRelato" required rows="3" class="w-full bg-warm-light border-none rounded-xl px-4 py-3.5 text-sm text-stone-800 focus:ring-1 focus:ring-gold-400 transition-shadow resize-none"></textarea>
               </div>
 
@@ -740,6 +740,107 @@
       }
     }
 
+    // --- Configuração Dinâmica da Triagem ---
+    function applyTriageConfig(config) {
+      if (!config) return;
+      const isHibrida = config.mode === 'hibrida';
+      const fields = config.fields || {};
+
+      const map = {
+        name: {
+          inlineInput: 'triNome',
+          inlineLabel: 'lbl_triNome',
+          inlineTitle: 'Nome Completo',
+          modalInput: 'modalName',
+          modalPlaceholder: 'Nome Completo'
+        },
+        phone: {
+          inlineInput: 'triPhone',
+          inlineLabel: 'lbl_triPhone',
+          inlineTitle: 'Telefone',
+          modalInput: 'modalPhone',
+          modalPlaceholder: 'Telefone / WhatsApp'
+        },
+        age: {
+          inlineInput: 'triIdade',
+          inlineLabel: 'lbl_triIdade',
+          inlineTitle: 'Idade',
+          modalInput: 'modalAge',
+          modalPlaceholder: 'Idade'
+        },
+        birth: {
+          inlineInput: 'triNascimento',
+          inlineLabel: 'lbl_triNascimento',
+          inlineTitle: 'Nascimento',
+          modalInput: 'modalBirthDate',
+          modalPlaceholder: ''
+        },
+        city: {
+          inlineInput: 'triCidade',
+          inlineLabel: 'lbl_triCidade',
+          inlineTitle: 'Cidade/UF',
+          modalInput: 'modalLocation',
+          modalPlaceholder: 'Cidade e Estado'
+        },
+        area: {
+          inlineInput: 'triArea',
+          inlineLabel: 'lbl_triArea',
+          inlineTitle: 'Área de Interesse',
+          modalInput: 'modalArea',
+          modalPlaceholder: ''
+        },
+        relato: {
+          inlineInput: 'triRelato',
+          inlineLabel: 'lbl_triRelato',
+          inlineTitle: 'Breve relato',
+          modalInput: 'modalSummary',
+          modalPlaceholder: 'Breve relato sobre seu caso'
+        }
+      };
+
+      Object.keys(map).forEach(key => {
+        const item = map[key];
+        const isRequired = isHibrida ? (fields[key] !== false) : true;
+
+        // Inline form
+        const inInput = document.getElementById(item.inlineInput);
+        const inLabel = document.getElementById(item.inlineLabel);
+        if (inInput) {
+          if (isRequired) {
+            inInput.setAttribute('required', 'required');
+          } else {
+            inInput.removeAttribute('required');
+          }
+        }
+        if (inLabel) {
+          inLabel.innerHTML = isRequired
+            ? `${item.inlineTitle} <span class="text-gold-500 font-bold">*</span>`
+            : `${item.inlineTitle} <span class="text-stone-400 font-normal text-[9px] lowercase">(opcional)</span>`;
+        }
+
+        // Modal form
+        const modInput = document.getElementById(item.modalInput);
+        if (modInput) {
+          if (isRequired) {
+            modInput.setAttribute('required', 'required');
+            if (item.modalPlaceholder) {
+              modInput.placeholder = `${item.modalPlaceholder} *`;
+            }
+          } else {
+            modInput.removeAttribute('required');
+            if (item.modalPlaceholder) {
+              modInput.placeholder = `${item.modalPlaceholder} (opcional)`;
+            }
+          }
+        }
+      });
+    }
+
+    try {
+      const cachedTriage = localStorage.getItem('suelen_triage_config');
+      if (cachedTriage) applyTriageConfig(JSON.parse(cachedTriage));
+    } catch(e) {}
+
     // Forms Handlers
     function handleTriageSubmit(e) {
       e.preventDefault();
@@ -749,7 +850,7 @@
         document.getElementById('triIdade').value,
         document.getElementById('triNascimento').value,
         document.getElementById('triCidade').value,
-        document.getElementById('triArea').value || 'Não informada',
+        document.getElementById('triArea').value || '',
         document.getElementById('triRelato').value
       );
     }
@@ -769,7 +870,15 @@
     }
 
     function sendWhatsAppMsg(name, phone, age, birth, city, area, summary) {
-      const msg = `*Olá, Dra. Suelen Rondon!*\nGostaria de iniciar um atendimento.\n\n*Nome:* ${name}\n*Telefone:* ${phone}\n*Idade:* ${age} anos\n*Data de Nascimento:* ${birth}\n*Localização:* ${city}\n*Área:* ${area}\n*Relato:* ${summary}`;
+      const fName = name && name.trim() ? name.trim() : 'Não informado';
+      const fPhone = phone && phone.trim() ? phone.trim() : 'Não informado';
+      const fAge = age ? `${age} anos` : 'Não informada';
+      const fBirth = birth && birth.trim() ? birth.trim() : 'Não informada';
+      const fCity = city && city.trim() ? city.trim() : 'Não informada';
+      const fArea = area && area.trim() ? area.trim() : 'Não informada';
+      const fSummary = summary && summary.trim() ? summary.trim() : 'Não informado';
+
+      const msg = `*Olá, Dra. Suelen Rondon!*\nGostaria de iniciar um atendimento.\n\n*Nome:* ${fName}\n*Telefone:* ${fPhone}\n*Idade:* ${fAge}\n*Data de Nascimento:* ${fBirth}\n*Localização:* ${fCity}\n*Área:* ${fArea}\n*Relato:* ${fSummary}`;
       window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
     }
 
@@ -899,6 +1008,10 @@
               insta = parsedSocial.instagram || '';
               fb = parsedSocial.facebook || '';
               tiktok = parsedSocial.tiktok || '';
+              if (parsedSocial.triage_config) {
+                applyTriageConfig(parsedSocial.triage_config);
+                try { localStorage.setItem('suelen_triage_config', JSON.stringify(parsedSocial.triage_config)); } catch(e) {}
+              }
             } else {
               insta = data.instagram;
             }
