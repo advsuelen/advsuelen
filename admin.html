@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   
   <script>
@@ -145,7 +145,7 @@
               <label class="relative flex items-center justify-center gap-2 w-full py-4 border-2 border-dashed border-gold-300 rounded-2xl bg-warm-light hover:bg-gold-50 transition-colors cursor-pointer group">
                 <i data-lucide="image-plus" class="w-5 h-5 text-gold-500 group-hover:scale-110 transition-transform"></i>
                 <span class="text-xs text-stone-700 font-bold uppercase tracking-wider">Adicionar Foto(s)</span>
-                <input type="file" id="aboutFileInput" accept="image/png, image/jpeg, image/jpg" multiple class="hidden">
+                <input type="file" id="aboutFileInput" accept="image/png, image/jpeg, image/jpg" multiple class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20">
               </label>
 
               <input type="hidden" id="about_img_data">
@@ -177,29 +177,46 @@
             <label class="block text-[11px] font-bold text-stone-500 uppercase tracking-widest mb-2">WhatsApp / Telefone</label>
             <div class="relative">
               <i data-lucide="phone" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gold-500"></i>
-              <input type="text" id="phone" class="w-full bg-warm-light border border-warm-border rounded-xl pl-11 pr-4 py-3.5 text-sm font-semibold text-stone-800">
+              <input type="text" id="phone" placeholder="(00) 00000-0000" class="w-full bg-warm-light border border-warm-border rounded-xl pl-11 pr-4 py-3.5 text-sm font-semibold text-stone-800">
             </div>
           </div>
           <div>
             <label class="block text-[11px] font-bold text-stone-500 uppercase tracking-widest mb-2">E-mail Profissional</label>
             <div class="relative">
               <i data-lucide="mail" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gold-500"></i>
-              <input type="email" id="email" class="w-full bg-warm-light border border-warm-border rounded-xl pl-11 pr-4 py-3.5 text-sm font-semibold text-stone-800">
+              <input type="email" id="email" placeholder="seuemail@adv.com" class="w-full bg-warm-light border border-warm-border rounded-xl pl-11 pr-4 py-3.5 text-sm font-semibold text-stone-800">
             </div>
           </div>
           <div>
-            <label class="block text-[11px] font-bold text-stone-500 uppercase tracking-widest mb-2">Instagram (@)</label>
+            <label class="block text-[11px] font-bold text-stone-500 uppercase tracking-widest mb-2">Instagram (@ ou link)</label>
             <div class="relative">
               <i data-lucide="instagram" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gold-500"></i>
-              <input type="text" id="instagram" class="w-full bg-warm-light border border-warm-border rounded-xl pl-11 pr-4 py-3.5 text-sm font-semibold text-stone-800">
+              <input type="text" id="instagram" placeholder="@dra_suelenrondon" class="w-full bg-warm-light border border-warm-border rounded-xl pl-11 pr-4 py-3.5 text-sm font-semibold text-stone-800">
+            </div>
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-stone-500 uppercase tracking-widest mb-2">Facebook (perfil ou link)</label>
+            <div class="relative">
+              <i data-lucide="facebook" class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gold-500"></i>
+              <input type="text" id="facebook" placeholder="facebook.com/seuperfil ou @perfil" class="w-full bg-warm-light border border-warm-border rounded-xl pl-11 pr-4 py-3.5 text-sm font-semibold text-stone-800">
+            </div>
+          </div>
+          <div>
+            <label class="block text-[11px] font-bold text-stone-500 uppercase tracking-widest mb-2">TikTok (@ ou link)</label>
+            <div class="relative flex items-center">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-gold-500 flex items-center justify-center">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+              </span>
+              <input type="text" id="tiktok" placeholder="@dra_suelenrondon" class="w-full bg-warm-light border border-warm-border rounded-xl pl-11 pr-4 py-3.5 text-sm font-semibold text-stone-800">
             </div>
           </div>
           <div class="md:col-span-2 lg:col-span-3">
             <label class="block text-[11px] font-bold text-stone-500 uppercase tracking-widest mb-2">Endereço Completo</label>
             <div class="relative">
               <i data-lucide="map-pin" class="absolute left-4 top-4 w-4 h-4 text-gold-500"></i>
-              <textarea id="address" rows="2" class="w-full bg-warm-light border border-warm-border rounded-xl pl-11 pr-4 py-3 text-sm font-semibold text-stone-800 resize-none"></textarea>
+              <textarea id="address" rows="3" placeholder="Rua ..., nº ..., Bairro ... Barra do Garças - MT" class="w-full bg-warm-light border border-warm-border rounded-xl pl-11 pr-4 py-3 text-sm font-semibold text-stone-800 resize-none"></textarea>
             </div>
+            <p class="text-[10px] text-stone-400 mt-1.5">Dica: Use &lt;br&gt; caso queira quebrar a linha do endereço na exibição do site.</p>
           </div>
         </div>
       </div>
@@ -234,12 +251,18 @@
       window.location.href = 'index.html';
     }
 
-    lucide.createIcons();
+    try {
+      if (typeof lucide !== 'undefined') {
+        lucide.createIcons();
+      }
+    } catch (e) {
+      console.warn('Lucide icons not loaded:', e);
+    }
 
     // Supabase Config
     const SUPABASE_URL = 'https://elaqmueijzqlqhrtoezb.supabase.co';
     const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVsYXFtdWVpanpxbHFocnRvZXpiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA4NjI4NDAsImV4cCI6MjEwNjQzODg0MH0.zR75ZS1ROumEFNQbyEwgu_T5kCKGqY1caFgvVEr0eEQ';
-    const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+    const supabaseClient = window.supabase ? window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY) : null;
 
     const alertBox = document.getElementById('alertBox');
     
@@ -249,43 +272,62 @@
         : `<i data-lucide="alert-circle" class="w-5 h-5"></i> ${message}`;
       alertBox.className = `mb-8 p-5 rounded-2xl font-semibold text-sm shadow-sm flex items-center gap-3 ${type === 'success' ? 'bg-emerald-50 text-emerald-800 border border-emerald-200' : 'bg-red-50 text-red-800 border border-red-200'}`;
       alertBox.style.display = 'flex';
-      lucide.createIcons();
+      try { if (typeof lucide !== 'undefined') lucide.createIcons(); } catch (e) {}
       window.scrollTo({ top: 0, behavior: 'smooth' });
       setTimeout(() => { alertBox.style.display = 'none'; }, 6000);
     }
 
     // --- Image Compression & Base64 Logic ---
     function compressImage(file, callback) {
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        const img = new Image();
-        img.onload = function() {
-          const canvas = document.createElement('canvas');
-          const MAX_WIDTH = 1200;
-          const MAX_HEIGHT = 1200;
-          let width = img.width;
-          let height = img.height;
+      try {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const img = new Image();
+          img.onload = function() {
+            try {
+              const canvas = document.createElement('canvas');
+              const MAX_WIDTH = 800;
+              const MAX_HEIGHT = 800;
+              let width = img.width;
+              let height = img.height;
 
-          if (width > height) {
-            if (width > MAX_WIDTH) { height *= MAX_WIDTH / width; width = MAX_WIDTH; }
-          } else {
-            if (height > MAX_HEIGHT) { width *= MAX_HEIGHT / height; height = MAX_HEIGHT; }
-          }
-          canvas.width = width; canvas.height = height;
-          const ctx = canvas.getContext('2d');
-          ctx.drawImage(img, 0, 0, width, height);
-          
-          // Compress to WebP for much smaller base64 string
-          const dataUrl = canvas.toDataURL('image/webp', 0.7);
-          callback(dataUrl);
+              if (width > height) {
+                if (width > MAX_WIDTH) { height *= MAX_WIDTH / width; width = MAX_WIDTH; }
+              } else {
+                if (height > MAX_HEIGHT) { width *= MAX_HEIGHT / height; height = MAX_HEIGHT; }
+              }
+              canvas.width = width; canvas.height = height;
+              const ctx = canvas.getContext('2d');
+              ctx.drawImage(img, 0, 0, width, height);
+              
+              // Fallback to jpeg which is more universally supported than webp
+              const dataUrl = canvas.toDataURL('image/jpeg', 0.6);
+              callback(dataUrl);
+            } catch (err) {
+              console.error('Error generating image preview:', err);
+              showAlert('Erro ao processar a imagem. Tente uma foto menor.', 'error');
+            }
+          };
+          img.onerror = function() {
+            console.error('Error loading image for compression');
+            showAlert('Erro ao carregar a imagem selecionada.', 'error');
+          };
+          img.src = e.target.result;
         };
-        img.src = e.target.result;
-      };
-      reader.readAsDataURL(file);
+        reader.onerror = function() {
+          console.error('Error reading file');
+          showAlert('Erro ao ler o arquivo de imagem.', 'error');
+        };
+        reader.readAsDataURL(file);
+      } catch (err) {
+        console.error('Catch all error in compressImage:', err);
+        showAlert('Erro inesperado ao processar a imagem.', 'error');
+      }
     }
 
     function setupImageUploader(inputId, previewId, uiId, overlayId, dataHolderId) {
-      document.getElementById(inputId).addEventListener('change', function(e) {
+      const input = document.getElementById(inputId);
+      input.addEventListener('change', function(e) {
         const file = e.target.files[0];
         if (!file) return;
         
@@ -296,7 +338,11 @@
           document.getElementById(uiId).classList.add('hidden');
           document.getElementById(overlayId).classList.remove('hidden');
           document.getElementById(dataHolderId).value = base64; // Save compressed string
+          input.value = '';
         });
+      });
+      input.addEventListener('click', function(e) {
+        input.value = '';
       });
     }
 
@@ -331,7 +377,7 @@
         </div>
       `).join('');
       
-      lucide.createIcons();
+      try { if (typeof lucide !== 'undefined') lucide.createIcons(); } catch (e) {}
     }
 
     function removeAboutPhoto(idx) {
@@ -339,7 +385,8 @@
       renderAboutPhotosGrid();
     }
 
-    document.getElementById('aboutFileInput').addEventListener('change', function(e) {
+    const aboutInput = document.getElementById('aboutFileInput');
+    aboutInput.addEventListener('change', function(e) {
       const files = Array.from(e.target.files);
       if (!files.length) return;
       
@@ -350,16 +397,21 @@
           processed++;
           if (processed === files.length) {
             renderAboutPhotosGrid();
+            aboutInput.value = '';
           }
         });
       });
-      e.target.value = '';
+    });
+
+    aboutInput.addEventListener('click', function(e) {
+      aboutInput.value = '';
     });
 
     // --- Load Data ---
     async function loadData() {
       try {
-        const { data, error } = await supabase.from('site_settings').select('*').eq('id', 1).single();
+        if (!supabaseClient) throw new Error("Supabase não carregou.");
+        const { data, error } = await supabaseClient.from('site_settings').select('*').eq('id', 1).single();
         if (error) throw error;
         if (data) {
           document.getElementById('hero_title').value = data.hero_title || '';
@@ -367,8 +419,25 @@
           document.getElementById('about_text').value = data.about_text || '';
           document.getElementById('phone').value = data.phone || '';
           document.getElementById('email').value = data.email || '';
-          document.getElementById('instagram').value = data.instagram || '';
           document.getElementById('address').value = data.address || '';
+          
+          let instaVal = data.instagram || '';
+          let fbVal = '';
+          let tiktokVal = '';
+          try {
+            const parsedSocial = JSON.parse(instaVal);
+            if (parsedSocial && typeof parsedSocial === 'object') {
+              instaVal = parsedSocial.instagram || '';
+              fbVal = parsedSocial.facebook || '';
+              tiktokVal = parsedSocial.tiktok || '';
+            }
+          } catch(e) {}
+          if (data.facebook) fbVal = data.facebook;
+          if (data.tiktok) tiktokVal = data.tiktok;
+
+          document.getElementById('instagram').value = instaVal;
+          document.getElementById('facebook').value = fbVal;
+          document.getElementById('tiktok').value = tiktokVal;
           
           if (data.hero_img) {
             document.getElementById('hero_img_data').value = data.hero_img;
@@ -406,6 +475,12 @@
       btn.innerHTML = '<i data-lucide="loader" class="w-4 h-4 animate-spin"></i> Publicando...';
       btn.disabled = true;
 
+      const socialData = {
+        instagram: document.getElementById('instagram').value.trim(),
+        facebook: document.getElementById('facebook').value.trim(),
+        tiktok: document.getElementById('tiktok').value.trim()
+      };
+
       const updates = {
         hero_title: document.getElementById('hero_title').value,
         hero_subtitle: document.getElementById('hero_subtitle').value,
@@ -414,21 +489,22 @@
         about_img: document.getElementById('about_img_data').value,
         phone: document.getElementById('phone').value,
         email: document.getElementById('email').value,
-        instagram: document.getElementById('instagram').value,
+        instagram: JSON.stringify(socialData),
         address: document.getElementById('address').value,
       };
 
       try {
-        const { error } = await supabase.from('site_settings').update(updates).eq('id', 1);
+        if (!supabaseClient) throw new Error("Supabase não carregou.");
+        const { error } = await supabaseClient.from('site_settings').update(updates).eq('id', 1);
         if (error) throw error;
         showAlert('Alterações publicadas com sucesso! Acesse o site para ver.', 'success');
       } catch (err) {
-        console.error(err);
-        showAlert('Erro ao salvar. Verifique se você rodou o código no painel do Supabase.', 'error');
+        console.error('Supabase update error:', err);
+        showAlert('Erro ao salvar: ' + (err.message || 'Verifique o painel do Supabase.'), 'error');
       } finally {
         btn.innerHTML = originalHtml;
         btn.disabled = false;
-        lucide.createIcons();
+        try { if (typeof lucide !== 'undefined') lucide.createIcons(); } catch (e) {}
       }
     });
 
