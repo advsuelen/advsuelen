@@ -1,0 +1,6 @@
+# Ignorar pastas pesadas que não fazem parte do site estático
+Asset-Linker/
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
