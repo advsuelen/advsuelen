@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
@@ -84,7 +84,7 @@
         <a href="#solucoes" class="hidden md:inline-block text-xs font-semibold text-stone-600 hover:text-bordeaux-900 transition-colors px-3 py-2">Soluções</a>
         <a href="#como-funciona" class="hidden md:inline-block text-xs font-semibold text-stone-600 hover:text-bordeaux-900 transition-colors px-3 py-2">Como Funciona</a>
         <a href="#duvidas" class="hidden md:inline-block text-xs font-semibold text-stone-600 hover:text-bordeaux-900 transition-colors px-3 py-2">Dúvidas Frequentes</a>
-        <a href="#consulta" class="inline-flex items-center gap-2 bg-gold-400 hover:bg-gold-500 text-bordeaux-950 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all shadow-md hover:shadow-lg">
+        <a href="https://wa.me/5566999402322?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20Direito%20da%20Fam%C3%ADlia." target="_blank" class="inline-flex items-center gap-2 bg-gold-400 hover:bg-gold-500 text-bordeaux-950 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all shadow-md hover:shadow-lg">
           <i data-lucide="heart-handshake" class="w-3.5 h-3.5"></i>
           <span>Conversa Sigilosa</span>
         </a>
@@ -132,7 +132,7 @@
 
           <!-- CTA Buttons -->
           <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-            <a href="#consulta" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gold-400 hover:bg-gold-500 text-bordeaux-950 px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest shadow-xl transition-all hover:-translate-y-1">
+            <a href="https://wa.me/5566999402322?text=Ol%C3%A1%2C%20gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20Direito%20da%20Fam%C3%ADlia." target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gold-400 hover:bg-gold-500 text-bordeaux-950 px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest shadow-xl transition-all hover:-translate-y-1">
               Falar com a Advogada em Sigilo
               <i data-lucide="arrow-right" class="w-4 h-4"></i>
             </a>
@@ -456,71 +456,6 @@
     </div>
   </section>
 
-  <!-- ===== FORMULÁRIO DE TRIAGEM DEDICADO ===== -->
-  <section id="consulta" class="py-24 bg-white border-t border-warm-border relative">
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-      
-      <div class="bg-warm-light rounded-[32px] p-8 sm:p-14 border border-warm-border shadow-xl">
-        <div class="text-center max-w-xl mx-auto mb-10">
-          <span class="text-gold-600 text-xs font-bold uppercase tracking-widest">Atendimento Reservado</span>
-          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-bordeaux-950 mt-1 mb-2">
-            Inicie seu Atendimento em Direito de Família
-          </h2>
-          <p class="text-stone-500 text-xs leading-relaxed">
-            Conte-nos de forma segura a sua situação para que a Dra. Suelen possa orientar os melhores passos.
-          </p>
-        </div>
-
-        <form id="areaTriageForm" onsubmit="handleAreaTriage(event)" class="space-y-5">
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            <div>
-              <label class="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-1.5">Seu Nome *</label>
-              <input type="text" id="areaName" required placeholder="Como podemos lhe chamar?" class="w-full bg-white border border-warm-border rounded-xl px-4 py-3.5 text-sm text-stone-800 focus:outline-none focus:ring-1 focus:ring-gold-500">
-            </div>
-            <div>
-              <label class="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-1.5">WhatsApp / Telefone Seguro *</label>
-              <input type="tel" id="areaPhone" required placeholder="(00) 00000-0000" class="w-full bg-white border border-warm-border rounded-xl px-4 py-3.5 text-sm text-stone-800 focus:outline-none focus:ring-1 focus:ring-gold-500">
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            <div>
-              <label class="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-1.5">Cidade e Estado *</label>
-              <input type="text" id="areaCity" required placeholder="Ex: Barra do Garças - MT" class="w-full bg-white border border-warm-border rounded-xl px-4 py-3.5 text-sm text-stone-800 focus:outline-none focus:ring-1 focus:ring-gold-500">
-            </div>
-            <div>
-              <label class="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-1.5">Assunto da Família</label>
-              <select id="areaSubtopic" class="w-full bg-white border border-warm-border rounded-xl px-4 py-3.5 text-sm text-stone-800 focus:outline-none focus:ring-1 focus:ring-gold-500">
-                <option value="Divórcio (Consensual ou Litigioso)">Divórcio</option>
-                <option value="Pensão Alimentícia (Fixação ou Cobrança)">Pensão Alimentícia</option>
-                <option value="Guarda de Filhos e Visitas">Guarda e Convivência</option>
-                <option value="Reconhecimento / Dissolução de União Estável">União Estável</option>
-                <option value="Partilha de Bens do Casal">Partilha de Bens</option>
-                <option value="Investigação de Paternidade (DNA)">Investigação de Paternidade</option>
-                <option value="Outro assunto familiar">Outro assunto familiar</option>
-              </select>
-            </div>
-          </div>
-
-          <div>
-            <label class="block text-[10px] font-bold text-stone-500 uppercase tracking-widest mb-1.5">Resumo da sua situação (opcional / confidencial)</label>
-            <textarea id="areaSummary" rows="3" placeholder="Se desejar, adiante resumidamente o que você precisa..." class="w-full bg-white border border-warm-border rounded-xl px-4 py-3.5 text-sm text-stone-800 focus:outline-none focus:ring-1 focus:ring-gold-500 resize-none"></textarea>
-          </div>
-
-          <div class="pt-2 text-center">
-            <button type="submit" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gold-400 hover:bg-gold-500 text-bordeaux-950 font-bold px-10 py-4 rounded-xl text-xs uppercase tracking-widest transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
-              <i data-lucide="message-square" class="w-4 h-4"></i>
-              Conversar no WhatsApp em Sigilo
-            </button>
-            <p class="text-[11px] text-stone-400 mt-3 flex items-center justify-center gap-1.5">
-              <i data-lucide="shield-check" class="w-3.5 h-3.5 text-gold-500"></i> Total confidencialidade garantida pelo Código de Ética da OAB.
-            </p>
-          </div>
-        </form>
-      </div>
-
-    </div>
-  </section>
 
   <!-- ===== FOOTER ===== -->
   <footer class="bg-bordeaux-950 text-white border-t border-white/10 py-12">
