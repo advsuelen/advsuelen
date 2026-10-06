@@ -3,48 +3,261 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Direito Bancário | Dra. Suelen Rondon</title>
+  <title>Direito Bancário | Dra. Suelen Rondon - Advocacia & Consultoria Estratégica</title>
+  <meta name="description" content="Assessoria jurídica especializada em Direito Bancário. Atendimento ágil e digital.">
+  
   <link rel="icon" type="image/png" href="assets/logo_extracted.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = { theme: { extend: { colors: { bordeaux: { 900: '#54121a', 950: '#380a11' }, gold: { 400: '#c59e75', 500: '#b88b58' }, warm: { light: '#FCFBF9', border: '#EAE5DF' } }, fontFamily: { serif: ['"Cormorant Garamond"', 'serif'], sans: ['"Montserrat"', 'sans-serif'] } } } }
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bordeaux: { 50: '#fdf2f4', 900: '#54121a', 950: '#380a11', 800: '#751c31', 700: '#94223c' },
+            gold: { 200: '#e6d8c2', 300: '#d5bd9b', 400: '#c59e75', 500: '#b88b58', 600: '#a37546', 700: '#845a38' },
+            warm: { light: '#FCFBF9', border: '#EAE5DF' }
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Montserrat"', 'sans-serif'],
+          }
+        }
+      }
+    }
   </script>
+
   <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    .gold-gradient-bg { background: linear-gradient(135deg, #dfc299 0%, #c59e75 50%, #9e7545 100%); }
+    .bordeaux-gradient { background: linear-gradient(135deg, #5c141d 0%, #460c13 100%); }
+    .card-lift { transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+    .card-lift:hover { transform: translateY(-6px); box-shadow: 0 20px 40px -10px rgba(84, 18, 26, 0.12); }
+  </style>
 </head>
-<body class="bg-warm-light text-stone-800 font-sans antialiased">
+<body class="bg-warm-light text-stone-800 font-sans antialiased selection:bg-gold-400 selection:text-white">
+
+  <!-- ===== TOP HEADER ===== -->
   <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-warm-border">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       <div class="flex items-center gap-4 sm:gap-6">
-        <a href="index.html" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-stone-500 hover:text-bordeaux-950 py-2 px-3 rounded-full hover:bg-stone-100 transition-colors">
-          <i data-lucide="arrow-left" class="w-4 h-4 text-gold-500"></i> <span class="hidden sm:inline">Voltar ao Início</span>
+        <a href="index.html#areas" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-stone-500 hover:text-bordeaux-950 transition-colors py-2 px-3 rounded-full hover:bg-stone-100">
+          <i data-lucide="arrow-left" class="w-4 h-4 text-gold-500"></i>
+          <span class="hidden sm:inline">Voltar ao Início</span>
+        </a>
+        <div class="h-6 w-px bg-warm-border hidden sm:block"></div>
+        <a href="index.html" class="flex items-center gap-3">
+          <img src="assets/logo_extracted.png" alt="Dra. Suelen Rondon" class="h-10 w-auto object-contain">
         </a>
       </div>
+
       <div class="flex items-center gap-3">
-        <a href="index.html" class="flex items-center gap-3"><img src="assets/logo_extracted.png" alt="Dra. Suelen Rondon" class="h-10 w-auto object-contain"></a>
+        <a href="#solucoes" class="hidden md:inline-block text-xs font-semibold text-stone-600 hover:text-bordeaux-900 transition-colors px-3 py-2">Soluções</a>
+        <a href="#como-funciona" class="hidden md:inline-block text-xs font-semibold text-stone-600 hover:text-bordeaux-900 transition-colors px-3 py-2">Como Funciona</a>
+        <a href="https://wa.me/5566999402322?text=Ol%C3%A1%2C%20Dra.%20Suelen%20Rondon!%20Gostaria%20de%20um%20atendimento%20na%20%C3%A1rea%20Banc%C3%A1ria." target="_blank" class="inline-flex items-center gap-2 bg-gold-400 hover:bg-gold-500 text-bordeaux-950 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all shadow-md hover:shadow-lg">
+          <i data-lucide="message-circle" class="w-3.5 h-3.5"></i>
+          <span>Falar com a Dra.</span>
+        </a>
       </div>
     </div>
   </header>
 
-  <section class="py-24">
-    <div class="max-w-3xl mx-auto px-4 text-center">
-      <div class="w-16 h-16 rounded-2xl bg-bordeaux-950 text-gold-400 flex items-center justify-center mx-auto mb-6 shadow-md">
-        <i data-lucide="landmark" class="w-8 h-8"></i>
+  <!-- ===== HERO SECTION ===== -->
+  <section class="relative overflow-hidden pt-12 pb-20 lg:pt-20 lg:pb-28 bg-gradient-to-b from-white via-warm-light to-[#f5f0eb]">
+    <div class="absolute top-0 right-1/4 w-96 h-96 bg-gold-200/25 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-10 w-80 h-80 bg-bordeaux-900/5 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gold-400/10 border border-gold-400/30 text-gold-700 text-[11px] font-bold uppercase tracking-widest shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            Especialidade Jurídica & Tecnologia Estratégica
+          </div>
+
+          <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-medium text-bordeaux-950 leading-[1.1] tracking-tight">
+            Direito Bancário de Alta Precisão,<br>
+            <span class="italic text-bordeaux-800 font-light">equilíbrio financeiro contra abusos institucionais.</span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-stone-600 font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            Proteção contundente contra práticas abusivas de instituições financeiras. Atuamos com firmeza para revisar juros abusivos, cancelar cobranças indevidas, solucionar golpes bancários (Pix, cartões) e garantir indenizações por falhas no serviço.
+          </p>
+
+          <div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-4 text-xs font-semibold text-stone-700">
+            <span class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-xl border border-warm-border shadow-sm"><i data-lucide="shield-check" class="w-4 h-4 text-gold-500"></i> Atendimento 100% Sigiloso</span>
+            <span class="inline-flex items-center gap-2 bg-white px-4 py-2 rounded-xl border border-warm-border shadow-sm"><i data-lucide="zap" class="w-4 h-4 text-gold-500"></i> Agilidade Processual Digital</span>
+          </div>
+
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a href="https://wa.me/5566999402322?text=Ol%C3%A1%2C%20Dra.%20Suelen%20Rondon!%20Gostaria%20de%20um%20atendimento%20na%20%C3%A1rea%20Banc%C3%A1ria." target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gold-400 hover:bg-gold-500 text-bordeaux-950 px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest shadow-xl transition-all hover:-translate-y-1">
+              Analisar Meu Caso Agora <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 flex justify-center">
+          <div class="relative w-full max-w-md">
+            <div class="absolute -inset-1 bg-gradient-to-r from-gold-400 to-bordeaux-700 rounded-3xl blur opacity-30 transform -rotate-1"></div>
+            <div class="relative bg-white rounded-3xl p-6 sm:p-8 border border-warm-border shadow-2xl space-y-6">
+              <div class="flex items-center justify-between border-b border-warm-border pb-4">
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-xl bg-bordeaux-900 flex items-center justify-center text-gold-400 shadow-md">
+                    <i data-lucide="landmark" class="w-5 h-5"></i>
+                  </div>
+                  <div>
+                    <h2 class="font-serif text-lg font-bold text-bordeaux-950">Direito Bancário</h2>
+                    <p class="text-[11px] text-stone-500">Defesa Intransigente dos Seus Direitos</p>
+                  </div>
+                </div>
+                <span class="text-[10px] font-bold px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800">Online</span>
+              </div>
+              <div class="space-y-3">
+                
+                <div class="p-3.5 rounded-2xl bg-warm-light border border-warm-border flex items-start gap-3">
+                  <div class="w-7 h-7 rounded-lg bg-gold-400/20 text-gold-700 flex items-center justify-center shrink-0 mt-0.5">
+                    <i data-lucide="percent" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-xs font-bold text-stone-800">Revisão de Juros</h3>
+                    <p class="text-[11px] text-stone-500 leading-relaxed">Identificação e remoção de juros compostos e taxas abusivas.</p>
+                  </div>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-warm-light border border-warm-border flex items-start gap-3">
+                  <div class="w-7 h-7 rounded-lg bg-gold-400/20 text-gold-700 flex items-center justify-center shrink-0 mt-0.5">
+                    <i data-lucide="smartphone" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-xs font-bold text-stone-800">Golpes Bancários</h3>
+                    <p class="text-[11px] text-stone-500 leading-relaxed">Recuperação de valores perdidos em fraudes e Pix indevidos.</p>
+                  </div>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-warm-light border border-warm-border flex items-start gap-3">
+                  <div class="w-7 h-7 rounded-lg bg-gold-400/20 text-gold-700 flex items-center justify-center shrink-0 mt-0.5">
+                    <i data-lucide="user-minus" class="w-4 h-4"></i>
+                  </div>
+                  <div>
+                    <h3 class="text-xs font-bold text-stone-800">Negativação Indevida</h3>
+                    <p class="text-[11px] text-stone-500 leading-relaxed">Liminares para limpar o nome e pedidos de dano moral.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="p-4 rounded-2xl bordeaux-gradient text-white flex items-center gap-4">
+                <div class="text-xs">
+                  <p class="font-serif italic text-gold-300 font-medium">"A justiça rápida começa na estratégia correta."</p>
+                  <p class="text-[10px] text-stone-300 mt-0.5">Dra. Suelen Rondon • Advogada</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <h1 class="font-serif text-4xl sm:text-5xl font-bold text-bordeaux-950 mb-6">Direito Bancário</h1>
-      <p class="text-lg text-stone-600 font-light leading-relaxed mb-10">
-        Proteção do consumidor e empresas nas relações com instituições financeiras. Atuamos na revisão de juros abusivos, renegociação de dívidas, fraudes bancárias (golpes do Pix, cartões clonados) e ações indenizatórias.
-      </p>
-      <a href="https://wa.me/5566999402322?text=Ol%C3%A1%2C%20Dra.%20Suelen%20Rondon!%20Gostaria%20de%20um%20atendimento%20na%20%C3%A1rea%20Banc%C3%A1ria." target="_blank" class="inline-flex items-center gap-3 bg-gold-400 hover:bg-gold-500 text-bordeaux-950 px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest shadow-xl transition-all hover:-translate-y-1">
-        <i data-lucide="message-circle" class="w-5 h-5"></i> Falar no WhatsApp
-      </a>
     </div>
   </section>
 
-  <footer class="bg-bordeaux-950 text-white border-t border-white/10 py-12 text-center mt-20">
-    <p class="text-xs text-stone-400">© 2026 Dra. Suelen Rondon. Todos os direitos reservados.</p>
+  <!-- ===== PRINCIPAIS SOLUÇÕES ===== -->
+  <section id="solucoes" class="py-24 bg-white border-t border-warm-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-gold-600 text-xs font-bold uppercase tracking-widest">Soluções Especializadas</span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium text-bordeaux-950 mt-2 mb-4">Como podemos atuar no seu caso</h2>
+        <p class="text-stone-500 font-light leading-relaxed">Cada demanda possui particularidades únicas. Nossa advocacia alia experiência processual e tecnologia para desenhar a melhor tese jurídica para você.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <div class="bg-warm-light rounded-[28px] p-8 border border-warm-border card-lift flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-bordeaux-950 text-gold-400 flex items-center justify-center mb-6 shadow-md">
+              <i data-lucide="credit-card" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-bordeaux-950 mb-3">Empréstimos Consignados</h3>
+            <p class="text-sm text-stone-600 leading-relaxed font-light mb-6">
+              Cancelamento de contratos não solicitados e descontos irregulares.
+            </p>
+          </div>
+        </div>
+        <div class="bg-warm-light rounded-[28px] p-8 border border-warm-border card-lift flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-bordeaux-950 text-gold-400 flex items-center justify-center mb-6 shadow-md">
+              <i data-lucide="refresh-cw" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-bordeaux-950 mb-3">Renegociação de Dívidas</h3>
+            <p class="text-sm text-stone-600 leading-relaxed font-light mb-6">
+              Defesa em ações de busca e apreensão e execuções.
+            </p>
+          </div>
+        </div>
+        <div class="bg-warm-light rounded-[28px] p-8 border border-warm-border card-lift flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-bordeaux-950 text-gold-400 flex items-center justify-center mb-6 shadow-md">
+              <i data-lucide="unlock" class="w-6 h-6"></i>
+            </div>
+            <h3 class="font-serif text-2xl font-bold text-bordeaux-950 mb-3">Bloqueios Judiciais</h3>
+            <p class="text-sm text-stone-600 leading-relaxed font-light mb-6">
+              Desbloqueio rápido de contas salário e poupanças penhoradas.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== COMO FUNCIONA ===== -->
+  <section id="como-funciona" class="py-24 bordeaux-gradient text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#c59e75 1px, transparent 1px); background-size: 32px 32px;"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-gold-400 text-xs font-bold uppercase tracking-widest">Processo Moderno</span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-medium mt-2 mb-4">Atendimento 100% Digital e Seguro</h2>
+        <p class="text-stone-300 font-light">Você não precisa perder tempo em deslocamentos. Resolvemos seu problema com total segurança e proximidade.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-bordeaux-950/60 p-8 rounded-3xl border border-white/10 relative">
+          <div class="w-12 h-12 rounded-xl bg-gold-400 text-bordeaux-950 font-bold text-lg flex items-center justify-center mb-6 shadow-lg">01</div>
+          <h3 class="font-serif text-2xl font-bold text-white mb-3">Diagnóstico Rápido</h3>
+          <p class="text-stone-300 text-sm font-light leading-relaxed">Você nos conta a sua situação pelo WhatsApp. Analisamos os fatos preliminares e identificamos a viabilidade jurídica imediata.</p>
+        </div>
+        <div class="bg-bordeaux-950/60 p-8 rounded-3xl border border-white/10 relative">
+          <div class="w-12 h-12 rounded-xl bg-gold-400 text-bordeaux-950 font-bold text-lg flex items-center justify-center mb-6 shadow-lg">02</div>
+          <h3 class="font-serif text-2xl font-bold text-white mb-3">Estratégia & Documentação</h3>
+          <p class="text-stone-300 text-sm font-light leading-relaxed">Envio simples de documentos por fotos ou PDF. Estruturamos a ação com as melhores teses e jurisprudências atualizadas.</p>
+        </div>
+        <div class="bg-bordeaux-950/60 p-8 rounded-3xl border border-white/10 relative">
+          <div class="w-12 h-12 rounded-xl bg-gold-400 text-bordeaux-950 font-bold text-lg flex items-center justify-center mb-6 shadow-lg">03</div>
+          <h3 class="font-serif text-2xl font-bold text-white mb-3">Execução Contínua</h3>
+          <p class="text-stone-300 text-sm font-light leading-relaxed">Protocolo digital imediato. Você recebe atualizações claras e diretas no seu WhatsApp a cada movimentação relevante.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-bordeaux-950 text-white border-t border-white/10 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-4">
+        <img src="assets/logo_extracted.png" alt="Dra. Suelen Rondon" class="h-10 w-auto brightness-200">
+        <div>
+          <p class="font-serif text-lg font-bold text-white">Dra. Suelen Rondon</p>
+          <p class="text-xs text-gold-400">OAB/MT 35.957 • Advocacia & Consultoria</p>
+        </div>
+      </div>
+      <div class="text-xs text-stone-400 text-center md:text-right">
+        <p>© 2026 Dra. Suelen Rondon. Todos os direitos reservados.</p>
+        <p class="text-[10px] text-stone-500 mt-1">Barra do Garças - MT • Atendimento em Todo o Brasil</p>
+      </div>
+    </div>
   </footer>
 
-  <script>lucide.createIcons();</script>
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>
